@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, send_file, abort
+from flask import Flask, render_template, request, send_file, abort,redirect
 import os
 
 app = Flask(__name__)
@@ -48,6 +48,10 @@ def download_to_client(filename):
     else:
         # If the file does not exist, return a 404 error
         abort(404)
+
+@app.route("/l")
+def l():
+    return redirect("/download/Coping Strategies Activity.......pdf")
 
 if __name__ == '__main__':
     app.run(debug=True)
